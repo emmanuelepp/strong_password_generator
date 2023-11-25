@@ -1,4 +1,4 @@
-<small>
+
 ```plaintext
   
   /$$$$$$   /$$                                                   /$$$$$$$                                                                      /$$        /$$$$$$                                                     /$$                        
@@ -13,7 +13,7 @@
                                                  |  $$$$$$/                                                                                                                                                                                       
                                                   \______/                                                                        
 ```
-</small>
+
 
 A Secure Password Generator in Rust: 'strong_password_generator' is a library designed to create robust and random passwords.
 
