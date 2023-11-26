@@ -1,14 +1,19 @@
-#[allow(unused_imports)]
-use rand::Rng;
+mod password_generator;
+mod password_security;
+
+use password_generator::generate_password;
+use password_security::SecurityLevel;
 
 fn main() {
-    let password = generate_password(16);
-    println!("Contraseña generada: {}", password);
-}
+    let pass = "56";
 
-fn generate_password(length: usize) -> String {
-    let mut rng = rand::thread_rng();
-    (0..length)
-        .map(|_| rng.gen_range(32..=127) as u8 as char)
-        .collect()
+    match SecurityLevel::determine_password_criteria(pass) {
+        Ok(security_level) => {
+            let length = security_level.security_value();
+            let password = generate_password(length);
+
+            println!("Generated password: {}", password);
+        }
+        Err(e) => println!("Error: {}", e),
+    }
 }
